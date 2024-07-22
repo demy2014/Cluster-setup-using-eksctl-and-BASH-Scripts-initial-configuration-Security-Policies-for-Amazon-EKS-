@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ca-talent-service-dev-web
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ca-talent-service-dev-web
+  template:
+    metadata:
+      labels:
+        app: ca-talent-service-dev-web
+    spec:
+      containers:
+      - name: ca-talent-service-dev-web
+        image: 981666308374.dkr.ecr.us-west-1.amazonaws.com/ca-talent-service-dev:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: APP_ENV
+          value: "development"
+        - name: APP_PORT
+          value: "5000"
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+      imagePullSecrets:
+      - name: regcred
+      containers:
+      - name: api
+        image: 981666308374.dkr.ecr.us-west-1.amazonaws.com/ca-talent-service-dev:latest
+        command: [ "sleep" ]
+        args: [ "infinity" ]     

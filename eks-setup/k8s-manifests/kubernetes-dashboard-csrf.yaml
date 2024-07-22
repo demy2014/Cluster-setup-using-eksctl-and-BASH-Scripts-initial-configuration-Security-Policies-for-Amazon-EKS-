@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kubernetes-dashboard-csrf
+  namespace: kubernetes-dashboard
+  labels:
+    app.kubernetes.io/managed-by: "Helm"
+    k8s-app: kubernetes-dashboard
+  annotations:
+    meta.helm.sh/release-name: "kubernetes-dashboard"
+    meta.helm.sh/release-namespace: "kubernetes-dashboard"
+type: Opaque
+data:
+  csrf: NA3/Y5WA44iCi7T8VrcENPMWeG5OZpHWx8V2gcsWvyK2spxlm+0/DoltIjdH6Iq9igyhkJLzfQcwOUIPjYuwmuuZr3lrspdkllZBPcBhr3pqRo0a/tJwFlFgRpgw+gcQqjc4sq5SMHD3/AEGdlpElp2LEq1mNBXBbF85RmiUU2YvXQokhvrSRqpXGAUSWkX00D4qyXg5k8P/JeMMUtDeLSgErQcsAlsX4oEdjvVD6hmu9bBX1tGrgtO0GP/45QbKYmnRAvIQT23fbRXMBEks7jaSsllxpAsKkABlnesOW6Cdkh+2iXLp3uxpqpFXrU4NJXpeOMecsPVka9Idu4M95w==
